@@ -4,7 +4,7 @@ public class Container {
 	InInterface In;
 	OutInterface Out;
 	CountInterface Count;
-	
+
 	public InInterface getIn() {
 		return In;
 	}
@@ -20,6 +20,7 @@ public class Container {
 	public CountInterface getCount() {
 		return Count;
 	}
+
 	public void setCount(CountInterface count) {
 		Count = count;
 	}

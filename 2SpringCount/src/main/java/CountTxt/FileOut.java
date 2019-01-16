@@ -16,7 +16,6 @@ public class FileOut extends FileData implements OutInterface{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 }
