@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<bean id="Count" class="CountTxt.Count" />	
+	
+	<bean id="ConsoleIn" class="CountTxt.ConsoleIn"/>
+	<bean id="ConsoleOut" class="CountTxt.ConsoleOut" />
+	
+	<bean id="FileIn" class="CountTxt.FileIn">
+		<property name="fileNameIn" value="/in.txt"/>
+		<property name="filePathIn" value="C:\Users\meta\Desktop\Test\in" />
+	</bean>
+	<bean id="FileOut" class="CountTxt.FileOut">
+		<property name="fileNameOut" value="/out.txt"/>
+		<property name="filePathOut" value="C:\Users\meta\Desktop\Test\out"/>
+	</bean>
+
+	<bean id="Container" class="CountTxt.Container">
+		<property name="In" ref="ConsoleIn"/>
+		<property name="Out" ref="ConsoleOut"/>
+		<property name="Count" ref="Count"/>
+	</bean>
+</beans>

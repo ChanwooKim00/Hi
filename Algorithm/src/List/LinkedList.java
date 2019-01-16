@@ -124,16 +124,16 @@ public class LinkedList {
 			return deleteLast();
 		} else {
 			Node deleteNode = getNode(index);
+			Node returnNode = deleteNode;
 			Node preNode = deleteNode.preNode;
 			Node nextNode = deleteNode.nextNode;
-
 			preNode.nextNode = nextNode;
-
 			nextNode.preNode = preNode;
-
+			
+			deleteNode=null;
 			size--;
 
-			return deleteNode.data;
+			return returnNode.data;
 		}
 	}
 
