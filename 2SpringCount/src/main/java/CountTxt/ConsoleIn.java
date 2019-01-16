@@ -3,7 +3,7 @@ package CountTxt;
 
 import java.util.Scanner;
 
-public class ConsoleIn implements InDummy {
+public class ConsoleIn implements InInterface {
 	//Keyboard
 	public String in() {
 		Scanner sc = new Scanner(System.in);

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FileIn extends FileData implements InDummy{
+public class FileIn extends FileData implements InInterface{
 	//File 
 	public String in() {
 		String path=getFilePathIn();

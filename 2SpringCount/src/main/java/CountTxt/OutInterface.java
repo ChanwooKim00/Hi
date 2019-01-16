@@ -1,6 +1,6 @@
 package CountTxt;
 
 
-public interface OutDummy {
+public interface OutInterface {
 	public void out(int in);
 }

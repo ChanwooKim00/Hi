@@ -1,26 +1,26 @@
 package CountTxt;
 
 public class Container {
-	InDummy In;
-	OutDummy Out;
-	CountDummy Count;
+	InInterface In;
+	OutInterface Out;
+	CountInterface Count;
 	
-	public InDummy getIn() {
+	public InInterface getIn() {
 		return In;
 	}
-	public void setIn(InDummy in) {
+	public void setIn(InInterface in) {
 		In = in;
 	}
-	public OutDummy getOut() {
+	public OutInterface getOut() {
 		return Out;
 	}
-	public void setOut(OutDummy out) {
+	public void setOut(OutInterface out) {
 		Out = out;
 	}
-	public CountDummy getCount() {
+	public CountInterface getCount() {
 		return Count;
 	}
-	public void setCount(CountDummy count) {
+	public void setCount(CountInterface count) {
 		Count = count;
 	}
 

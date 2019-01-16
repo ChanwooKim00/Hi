@@ -1,5 +1,5 @@
 package CountTxt;
 
-public interface CountDummy {
+public interface CountInterface {
 	public int txtCount(String txt); 
 }

@@ -3,7 +3,7 @@ package CountTxt;
 
 import java.util.List;
 
-public class Count implements CountDummy{
+public class Count implements CountInterface{
 	public int txtCount(String txt) {	
 		int count=0;
 		for(int i=0; i<txt.length();i++) {

@@ -1,5 +1,5 @@
 package CountTxt;
 
-public interface InDummy {
+public interface InInterface {
 	public String in();
 }

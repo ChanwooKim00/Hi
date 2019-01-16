@@ -24,4 +24,5 @@
 		<property name="Out" ref="ConsoleOut"/>
 		<property name="Count" ref="Count"/>
 	</bean>
+	
 </beans>

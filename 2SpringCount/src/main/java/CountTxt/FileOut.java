@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileOut extends FileData implements OutDummy{
+public class FileOut extends FileData implements OutInterface{
 	public void out(int in) {
 		String filePath=getFilePathOut().concat(getFileNameOut());
 		try {
