@@ -23,9 +23,10 @@
 		<property name="fileNameOut" value="/out.txt"/>
 		<property name="filePathOut" value="C:\Users\meta\Desktop\Test%LIB_HOME%/\out"/>
 	</bean>
-
+	
+	<!-- Contain -->
 	<bean id="Container" class="CountTxt.Container">
-		<property name="In" ref="FileIn" />
+		<property name="In" ref="ConsoleIn" />
 		<property name="Out" ref="ConsoleOut"/>
 		<property name="Count" ref="Count"/>
 	</bean>
