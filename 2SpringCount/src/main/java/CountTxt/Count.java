@@ -2,7 +2,9 @@ package CountTxt;
 
 import java.util.List;
 
-public class Count implements CountInterface {
+import org.springframework.beans.factory.InitializingBean;
+
+public class Count implements CountInterface, InitializingBean {
 	Character charStr;
 
 	public int txtCount(String txt) {
@@ -25,5 +27,11 @@ public class Count implements CountInterface {
 
 	public void setCharStr(Character charStr) {
 		this.charStr = charStr;
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("Split Char='"+charStr+"'");
+		
 	}
 }

@@ -4,31 +4,31 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
-    
+
 	<!-- COUNT -->
-	<bean id="Count" class="CountTxt.Count" >
+	<bean id="Count" class="CountTxt.Count">
 		<property name="charStr" value=" " />
-	</bean>	
-	
+	</bean>
+
 	<!-- CONSOLE InOut -->
-	<bean id="ConsoleIn" class="CountTxt.ConsoleIn"/>
+	<bean id="ConsoleIn" class="CountTxt.ConsoleIn" />
 	<bean id="ConsoleOut" class="CountTxt.ConsoleOut" />
-	
+
 	<!-- FILE InOut -->
 	<bean id="FileIn" class="CountTxt.FileIn">
-		<property name="fileNameIn" value="/in.txt"/>
+		<property name="fileNameIn" value="/in.txt" />
 		<property name="filePathIn" value="C:\Users\meta\Desktop\Test\in" />
 	</bean>
 	<bean id="FileOut" class="CountTxt.FileOut">
-		<property name="fileNameOut" value="/out.txt"/>
-		<property name="filePathOut" value="C:\Users\meta\Desktop\Test%LIB_HOME%/\out"/>
+		<property name="fileNameOut" value="/out.txt" />
+		<property name="filePathOut" value="C:\Users\meta\Desktop\Test\out" />
 	</bean>
-	
+
 	<!-- Contain -->
 	<bean id="Container" class="CountTxt.ContainObject">
 		<property name="In" ref="ConsoleIn" />
-		<property name="Out" ref="ConsoleOut"/>
-		<property name="Count" ref="Count"/>
+		<property name="Out" ref="ConsoleOut" />
+		<property name="Count" ref="Count" />
 	</bean>
-	
+
 </beans>

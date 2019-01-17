@@ -1,6 +1,9 @@
 package CountTxt;
 
-public class ContainObject {
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class ContainObject implements InitializingBean, DisposableBean{
 	InInterface In;
 	OutInterface Out;
 	CountInterface Count;
@@ -23,6 +26,15 @@ public class ContainObject {
 
 	public void setCount(CountInterface count) {
 		Count = count;
+	}
+	
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("ContainObject START");
+	}
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("ContainObject END");
 	}
 
 }
