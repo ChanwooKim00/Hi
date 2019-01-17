@@ -1,6 +1,5 @@
 package CountTxt;
 
-
 import java.util.Scanner;
 
 public class ConsoleIn implements InInterface {

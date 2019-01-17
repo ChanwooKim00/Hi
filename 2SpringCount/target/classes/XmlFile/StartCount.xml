@@ -25,9 +25,10 @@
 	</bean>
 	
 	<!-- Contain -->
-	<bean id="Container" class="CountTxt.Container">
+	<bean id="Container" class="CountTxt.ContainObject">
 		<property name="In" ref="ConsoleIn" />
 		<property name="Out" ref="ConsoleOut"/>
 		<property name="Count" ref="Count"/>
 	</bean>
+	
 </beans>

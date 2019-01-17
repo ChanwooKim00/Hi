@@ -1,6 +1,6 @@
 package CountTxt;
 
-public class Container {
+public class ContainObject {
 	InInterface In;
 	OutInterface Out;
 	CountInterface Count;

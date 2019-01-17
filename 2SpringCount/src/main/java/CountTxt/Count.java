@@ -3,7 +3,6 @@ package CountTxt;
 import java.util.List;
 
 public class Count implements CountInterface {
-
 	Character charStr;
 
 	public int txtCount(String txt) {
