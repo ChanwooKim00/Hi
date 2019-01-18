@@ -23,7 +23,7 @@ public class BinarySearch {
 	}
 	public static void main(String[] args) {
 		BubbleSort sort=new BubbleSort();
-		int[] testData= {24,12,66,2,4};		
+		int[] testData= {24,12,66,1,4};		
 		sort.sort(testData);
 		System.out.println(search(testData, 12));
 		for(int i=0;i<testData.length;i++) {

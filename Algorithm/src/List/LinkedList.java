@@ -145,7 +145,7 @@ public class LinkedList {
 		linkedList.addFirst(3);
 		linkedList.addFirst(4);
 		for (int i = 0; i < linkedList.size; i++) {
-			System.out.println(i + "번 째 = " + linkedList.getNode(i).data);
+			System.out.println(i + "번째 = " + linkedList.getNode(i).data);
 		}
 	}
 }

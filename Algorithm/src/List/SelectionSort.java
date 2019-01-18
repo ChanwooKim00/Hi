@@ -15,7 +15,7 @@ public class SelectionSort {
 		return data;
 	}
 	public static void main(String[] args) {
-		int[] testData= {24,12,66,2,4};
+		int[] testData= {24,12,66,1,4};
 		sort(testData);
 		for(int i=0;i<testData.length;i++) {
 			System.out.print(testData[i]+", ");
