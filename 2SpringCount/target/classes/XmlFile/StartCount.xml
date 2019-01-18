@@ -7,7 +7,7 @@
 
 	<!-- COUNT -->
 	<bean id="Count" class="CountTxt.Count">
-		<property name="charStr" value=" " />
+		<constructor-arg name="charSplit" value=" " />
 	</bean>
 
 	<!-- CONSOLE InOut -->
@@ -31,3 +31,18 @@
 		<property name="Count" ref="Count" />
 	</bean>
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

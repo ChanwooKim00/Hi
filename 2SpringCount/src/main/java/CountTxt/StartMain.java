@@ -8,12 +8,18 @@ public class StartMain {
 	public static void main(String[] args) {
 //		ApplicationContext context = new ClassPathXmlApplicationContext("XmlFile/StartCount.xml");
 		GenericXmlApplicationContext context=new GenericXmlApplicationContext("classpath:XmlFile/StartCount.xml");
-		ContainObject container = null;
 		
-		container=context.getBean("Container",ContainObject.class);
-		container.getOut().out(container.getCount().txtCount(container.getIn().in()));
+		ContainObject containObject = null;
+		
+		containObject=context.getBean("Container",ContainObject.class);
 		
 		context.close();
+		
+		containObject.getOut().out(containObject.getCount().txtCount(containObject.getIn().in()));
+		
 	}
 }
  
+
+
+

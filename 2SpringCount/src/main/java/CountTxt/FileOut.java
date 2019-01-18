@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileOut extends FileData implements OutInterface{
+	//File
 	public void out(int in) {
 		String filePath=getFilePathOut().concat(getFileNameOut());
 		try {
@@ -16,6 +17,7 @@ public class FileOut extends FileData implements OutInterface{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println(filePath+" 에 저장 완료.");
 	}
 
 }

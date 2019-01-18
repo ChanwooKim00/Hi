@@ -5,14 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.InitializingBean;
 
 public class Count implements CountInterface, InitializingBean {
-	Character charStr;
-
+	Character charSplit;
+	public Count(Character charSplit) {
+		this.charSplit=charSplit;
+	}
 	public int txtCount(String txt) {
 		int count = 0;
 		for (int i = 0; i < txt.length(); i++) {
-			if (txt.charAt(i) == charStr) {
+			if (txt.charAt(i) == charSplit) {
 				count = count + 1;
-				if (txt.charAt(i + 1) == charStr) {
+				if (txt.charAt(i + 1) == charSplit) {
 					i = i + 1;
 				}
 			}
@@ -22,16 +24,17 @@ public class Count implements CountInterface, InitializingBean {
 	}
 
 	public Character getCharStr() {
-		return charStr;
+		return charSplit;
 	}
 
 	public void setCharStr(Character charStr) {
-		this.charStr = charStr;
+		this.charSplit = charStr;
 	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		System.out.println("Split Char='"+charStr+"'");
+		System.out.println("Split Char='"+charSplit+"'");
 		
 	}
 }
+

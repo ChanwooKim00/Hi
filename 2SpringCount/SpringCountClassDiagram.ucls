@@ -3,166 +3,154 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="CountTxt.FileIn" project="2SpringCount" 
     file="/2SpringCount/src/main/java/CountTxt/FileIn.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="389" y="559"/>    
+    <position height="106" width="104" x="1199" y="679"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="CountTxt.ConsoleIn" project="2SpringCount" 
-    file="/2SpringCount/src/main/java/CountTxt/ConsoleIn.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="245" y="559"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="3" language="java" name="CountTxt.InInterface" project="2SpringCount" 
+  <interface id="2" language="java" name="CountTxt.InInterface" project="2SpringCount" 
     file="/2SpringCount/src/main/java/CountTxt/InInterface.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="397" y="786"/>    
+    <position height="88" width="120" x="964" y="951"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="4" language="java" name="CountTxt.ContainObject" project="2SpringCount" 
-    file="/2SpringCount/src/main/java/CountTxt/ContainObject.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="722" y="604"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="CountTxt.FileData" project="2SpringCount" 
+  <class id="3" language="java" name="CountTxt.FileData" project="2SpringCount" 
     file="/2SpringCount/src/main/java/CountTxt/FileData.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="491" y="314"/>    
+    <position height="304" width="188" x="1288" y="335"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="6" language="java" name="CountTxt.CountInterface" project="2SpringCount" 
-    file="/2SpringCount/src/main/java/CountTxt/CountInterface.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="884" y="786"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <interface id="7" language="java" name="CountTxt.OutInterface" project="2SpringCount" 
-    file="/2SpringCount/src/main/java/CountTxt/OutInterface.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="685" y="786"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="8" language="java" name="CountTxt.ConsoleOut" project="2SpringCount" 
-    file="/2SpringCount/src/main/java/CountTxt/ConsoleOut.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="914" y="559"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="CountTxt.FileOut" project="2SpringCount" 
+  <class id="4" language="java" name="CountTxt.FileOut" project="2SpringCount" 
     file="/2SpringCount/src/main/java/CountTxt/FileOut.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="533" y="559"/>    
+    <position height="106" width="104" x="1343" y="679"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="CountTxt.Count" project="2SpringCount" 
+  <class id="5" language="java" name="CountTxt.Count" project="2SpringCount" 
     file="/2SpringCount/src/main/java/CountTxt/Count.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1076" y="559"/>    
+    <position height="178" width="178" x="602" y="679"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="CountTxt.StartMain" project="2SpringCount" 
+  <class id="6" language="java" name="CountTxt.StartMain" project="2SpringCount" 
     file="/2SpringCount/src/main/java/CountTxt/StartMain.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="690" y="215"/>    
+    <position height="106" width="130" x="1118" y="335"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="12">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="13" name="In">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="14" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <class id="7" language="java" name="CountTxt.ConsoleIn" project="2SpringCount" 
+    file="/2SpringCount/src/main/java/CountTxt/ConsoleIn.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="104" x="820" y="679"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="CountTxt.ContainObject" project="2SpringCount" 
+    file="/2SpringCount/src/main/java/CountTxt/ContainObject.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="232" width="195" x="964" y="679"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="CountTxt.CountInterface" project="2SpringCount" 
+    file="/2SpringCount/src/main/java/CountTxt/CountInterface.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="135" x="783" y="951"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="10" language="java" name="CountTxt.OutInterface" project="2SpringCount" 
+    file="/2SpringCount/src/main/java/CountTxt/OutInterface.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="120" x="1343" y="951"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="11" language="java" name="CountTxt.ConsoleOut" project="2SpringCount" 
+    file="/2SpringCount/src/main/java/CountTxt/ConsoleOut.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="109" x="1487" y="679"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="12">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="13">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <generalization id="14">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
   <association id="15">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="16" name="Count">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="17" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="16" name="In"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="18">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <realization id="19">    
-    <end type="SOURCE" refId="2"/>    
+  <association id="18">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="19" name="Out"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="21">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="3"/>  
-  </realization>  
-  <realization id="20">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <association id="21">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="22" name="Out">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="23" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  </generalization>  
+  <association id="23">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="24" name="Count"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="24">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
   <realization id="26">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
   </realization>  
   <realization id="27">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="7"/>  
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="9"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
