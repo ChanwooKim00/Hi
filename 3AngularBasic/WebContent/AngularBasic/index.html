@@ -12,19 +12,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    <meta charset="UTF-8">
   </head>
 
   <body>
     <h1>AngularJS Basic Study</h1>
 
-    <div ng-app="myApp"> <!-- div 태그에 모듈 적용 -->
+    <div ng-app="myApp" ng-init="hi=0"> <!-- div 태그에 모듈 적용 -->
       <div ng-controller="FirstCtrl"> <!-- 해당 모듈 안에 있는 컨트롤러 사용-->
-      <input type="text" ng-model="first">
-      <input type="text" ng-model="two">
-      <input type="text" ng-model="three">
-        <p>{{first}}</p>
-        <p>{{two}}</p>
-        <p>{{three}}</p>     
+	      <input type="text" ng-model="first">
+	      <input type="text" ng-model="two">
+	      <input type="text" ng-model="three">
+	      <input type="text" ng-model="hi">
+	        <p>{{first}}</p>
+	        <p>{{two}}</p>
+	        <p>{{three}}</p>   
+	        <p>{{hi}}</p>  <!-- ng-init 에 들어간 키값 -->
+      </div>
+      
+      <div ng-controller="SecondCtrl">
+      	<p>{{first}}</p> <!-- 키+값으로 구성된 배열 전체 불러오기 -->
+      	<p>{{first.detail.key2}}</p><!-- first 에 키 가 key2인 값 가져오기 -->
       </div>
     </div>
     

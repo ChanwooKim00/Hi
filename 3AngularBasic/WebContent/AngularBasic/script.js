@@ -1,13 +1,5 @@
 
 
-
-(function(){
-    var app= angular.module('todo', []);
-    app.controller('TodoCtrl', ['$scope', function($scope){
-        $scope.name='Chris';
-    }]);
-})();
-
 (function(){
     var myApp=angular.module('myApp',[]);
 
@@ -16,17 +8,10 @@
         $scope.two="my";
         $scope.three="friend";
     }]);
-})();
-
-(function(){
-    var myApp2=angular.module('myApp2',[])
     
-    myApp2.controller('SecondCtrl',['$scope', function($scope){
-        $scope.first= {
-            "key":"value",
-            "key2":"value2",
-            "key3":"value3"
-        };
+    //키 + 값으로 다음과 같은 형태로 만들 수도 있다.
+    myApp.controller('SecondCtrl',['$scope', function($scope){
+        $scope.first= {};
         $scope.first.detail={
             "key":"Detailvalue",
             "key2":"Detailvalue2",
@@ -34,3 +19,4 @@
         };
     }]);
 })();
+
