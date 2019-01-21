@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link data-require="bootstrap@4.0.5" data-semver="4.0.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <script data-require="bootstrap@4.0.5" data-semver="4.0.5" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+    <script data-require="angular.js@4.0.0" data-semver="4.0.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <script data-require="angular.js@4.0.0" data-semver="4.0.0" src="script.ts"></script>
+    <script data-require="angular.js@4.0.0" data-semver="4.0.0" src="system.config.js"></script>
+    <script data-require="angular.js@4.0.0" data-semver="4.0.0" src="tsconfig.json"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <h1>Hello {{ name }}</h1>
+
+    <div ng-app="myApp"><!-- div 태그에 모듈 적용 -->
+      <div ng-controller="FirstCtrl"><!-- 해당 모듈 안에 있는 컨트롤러 사용-->
+        <!-- controller logic-->
+        <p>{{first}}</p>
+        <p>{{two}}</p>
+        <p>{{three}}</p>
+        
+      </div>
+    </div>
+
+  </body>
+
+</html>
