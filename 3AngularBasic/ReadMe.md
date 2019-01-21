@@ -1,10 +1,12 @@
 #AngulJS 사용법.
 
 ## Module , Controller
-### ng-app 은 사용할 모듈을 설정.
-### ng-controller 는 모듈안의 특정 컨트롤러를 설정.
-### Example
-#### script 부분
+### 1. ng-app 은 사용할 모듈을 설정.
+
+### 2. ng-controller 는 모듈안의 특정 컨트롤러를 설정.
+
+#### 3. Example
+###### script 부분
 
 ```javascript
 (function(){
@@ -25,7 +27,7 @@
 })();
 ```
 
-
+###### HTML 부분
 ```html
     <div ng-app="myApp"><!-- div 태그에 모듈 적용 -->
       <div ng-controller="FirstCtrl"><!-- 해당 모듈 안에 있는 컨트롤러 사용-->
