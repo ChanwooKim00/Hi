@@ -39,7 +39,7 @@
       </div>
     </div>
     
-    <div ng-app="todo">
+    <div ng-app="todo"> 
       <div ng-controller="TodoCtrl">
         <p>{{name}}</p>
       </div>

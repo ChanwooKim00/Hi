@@ -8,6 +8,8 @@
     <script data-require="angular.js@4.0.0" data-semver="4.0.0" src="script.ts"></script>
     <script data-require="angular.js@4.0.0" data-semver="4.0.0" src="system.config.js"></script>
     <script data-require="angular.js@4.0.0" data-semver="4.0.0" src="tsconfig.json"></script>
+    <script src="http://code.angularjs.org/angular-1.0.0rc10.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
@@ -15,34 +17,17 @@
   <body>
     <h1>AngularJS Basic Study</h1>
 
-    <div ng-app="myApp"><!-- div 태그에 모듈 적용 -->
-      <div ng-controller="FirstCtrl"><!-- 해당 모듈 안에 있는 컨트롤러 사용-->
+    <div ng-app="myApp"> <!-- div 태그에 모듈 적용 -->
+      <div ng-controller="FirstCtrl"> <!-- 해당 모듈 안에 있는 컨트롤러 사용-->
+      <input type="text" ng-model="first">
+      <input type="text" ng-model="two">
+      <input type="text" ng-model="three">
         <p>{{first}}</p>
         <p>{{two}}</p>
         <p>{{three}}</p>     
       </div>
     </div>
     
-
-    <div ng-app="myApp2">
-      <div ng-controller="SecondCtrl">
-        <p>first=  {{ first.key }}</p>
-        <p>first=  {{ first.key2 }}</p>
-        <p>first=  {{ first.key3 }}</p>
-          <!-- 컨트롤러 에 등록 할 때 패키지 처럼 하위 에 둘 수도 있다.-->
-        <p class="key">firstDetail=  {{ first.details.key }}</p>
-        <p class="key2">firstDetail=  {{ first.details.key2 }}</p>
-        <p class="key3">firstDetail=  {{ first.details.key3 }}</p>
-      </div>
-    </div>
-    
-  <!--
-    <div ng-app="myApp2">
-        <div ng-controller="UserCtrl">
-            <p class="username">Welcome, {{ user.details.username }}</p>
-            <p class="id">User ID: {{ user.details.id }}</p>
-        </div>
-    </div>
   </body>
--->
+
 </html>
