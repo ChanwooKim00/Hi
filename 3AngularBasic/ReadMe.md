@@ -61,4 +61,4 @@
 ```
 ### 3. 하나의 페이지에서는 하나의 Module 밖에 갖지 못한다.
 ### 4. 하나의 Module 에서 여러개의 Controller 를 사용해서 여러가지 구현 
-### 5. 위의   SecondCtrl Controller 부분처럼 여러가지 데이터를  [ 키:값 ] 형태로 사용
+### 5. 위의   SecondCtrl Controller 부분처럼 여러가지 데이터를  [ 키:값 ] 형태(Json)로 사용
