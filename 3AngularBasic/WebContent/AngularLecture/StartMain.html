@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	
+	<script>
+		var metaApp=angular.module('meta-app',[])
+			
+        var url='http://10.1.5.200:3000/biz/getBizList?page_size=10&'
+		metaApp.controller('metaCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope){
+
+		$scope.pageArr = [1, 2, 3];
+
+        $scope.page=function(num){
+			var pageNum=num-1;
+            var url2='page_number='+pageNum+'&API_KEY=META_TEST';
+			$scope.pageCount=num+10;
+			
+			
+			$http.get(url+url2)
+			.then(function(response){
+				$scope.projectList=response.data.data.dataList;
+				$scope.totalSize=response.data.data.totalSize;
+				$scope.totalPage=parseInt($scope.totalSize/10);
+				if(num>1){
+					$scope.pageArr = [num -1, num, num + 1];
+				}else {
+					$scope.pageArr = [1, 2, 3];
+				}
+
+			}).catch(function(response){
+				console.log("Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", response.status, response.data);
+			}); 
+        }
+		}]);
+
+	</script>
+</head>
+
+<body ng-app="meta-app" ng-controller="metaCtrl">
+	<div class="container">
+	 <div class="row">
+	  <div class="col-12">
+		  <div ng-init="page(1)">
+		  <h5 class="m-t-20"> 현재 등록된 프로젝트 수 {{totalSize}} </h5>
+		  토탈 페이지 :{{totalPage}}
+			페이지:{{ pageArr[1] }}
+		  <div class="table-responsive-sm table-hover" >
+			  <table class="table">
+				  <thread>
+					  <tr>
+						  <th scope="col">프로젝트명</th>
+						  <th scope="col">사이트명</th>
+						  <th scope="col">프로젝트상세</th>
+						</tr>
+					</thread>
+					<tbody ng-repeat="project in projectList">
+						<tr>
+							<td> {{ project.pr_nm }} </td>
+							<td> {{ project.site_nm }} </td>
+							<td> {{ project.product_detail }} </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	   <nav aria-label="Page Navigation Example" ng-init="page(1)">
+	   	<ul class="pagination justify-context-center" >
+	   		<li class="page-item disabled"> <a class="page-link" tabindex="-1">Previous</a></li>
+			   <li class="page-item"> <a id="page" class="page-link"  ng-click="page(pageArr[0])">{{pageArr[0]}}</a></li>
+			   <li class="page-item"> <a id="page" class="page-link"  ng-click="page(pageArr[1])">{{pageArr[1]}}</a></li>
+			   <li class="page-item"> <a id="page" class="page-link"  ng-click="page(pageArr[2])">{{pageArr[2]}}</a></li>
+	   		<li class="page-item"> <a class="page-link" href="#">Next</a></li>
+	   	</ul>
+	   </nav>
+	  </div>
+	 </div>
+	</div>
+</body>
+</html>
