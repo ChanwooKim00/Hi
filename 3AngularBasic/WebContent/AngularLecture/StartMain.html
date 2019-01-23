@@ -9,47 +9,69 @@
 	<meta charset="UTF-8">
 	
 	<script>
-		var metaApp=angular.module('meta-app',[])
-			
-        var url='http://10.1.5.200:3000/biz/getBizList?page_size=10&'
-		metaApp.controller('metaCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope){
+		var metaApp=angular.module('meta-app', []);
 
-		$scope.pageArr = [1, 2, 3];
-
-        $scope.page=function(num){
-			var pageNum=num-1;
-            var url2='page_number='+pageNum+'&API_KEY=META_TEST';
-			$scope.pageCount=num+10;
-			
-			
-			$http.get(url+url2)
-			.then(function(response){
-				$scope.projectList=response.data.data.dataList;
-				$scope.totalSize=response.data.data.totalSize;
-				$scope.totalPage=parseInt($scope.totalSize/10);
-				if(num>1){
-					$scope.pageArr = [num -1, num, num + 1];
+		metaApp.controller('metaCtrl', ['$scope','$http', function($scope, $http){
+			$scope.page=function(num){
+				$scope.start=1;
+				$scope.last=7;
+				$scope.preUndo="";
+				$scope.lasUndo="";
+				var url1='http://10.1.5.200:3000/biz/getBizList?page_size=10&'
+				var url2='page_number='+num+'&API_KEY=META_TEST';
+				
+				$http.get(url1+url2).then(function(response){
+					$scope.projectList=response.data.data.dataList;
+					$scope.totalSize=response.data.data.totalSize;
+					$scope.totalPage=parseInt($scope.totalSize/10);
+				}).catch(function(response){
+					console.log("Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", response.status, response.data);
+				}); // END HTTP
+				
+				if (num<4){
+					$scope.start = 1;
+					$scope.last = 7;
 				}else {
-					$scope.pageArr = [1, 2, 3];
+					$scope.start=num-3;
+					$scope.last=num+3;
 				}
 
-			}).catch(function(response){
-				console.log("Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", response.status, response.data);
-			}); 
-        }
-		}]);
+				if( $scope.last>=$scope.totalPage){
+					$scope.lasUndo="disabled";
+				}
+				if($scope.start==1){
+					$scope.preUndo="disabled";
+				}
+			};//page END
 
+			$scope.range=function(startIn, lastIn){
+				$scope.start=startIn;
+				$scope.last=lastIn;
+				$scope.pageArr=new Array;
+				var j=0;
+
+				if($scope.last>$scope.totalPage){
+					$scope.last=$scope.totalPage;
+				}
+				for(var i=$scope.start;i<=$scope.last;i++){
+					$scope.pageArr[j]=i;
+					j++;				
+				}
+				return $scope.pageArr;
+			};//range END
+
+		}]);
 	</script>
 </head>
 
+
+
 <body ng-app="meta-app" ng-controller="metaCtrl">
 	<div class="container">
-	 <div class="row">
 	  <div class="col-12">
 		  <div ng-init="page(1)">
 		  <h5 class="m-t-20"> 현재 등록된 프로젝트 수 {{totalSize}} </h5>
-		  토탈 페이지 :{{totalPage}}
-			페이지:{{ pageArr[1] }}
+		  
 		  <div class="table-responsive-sm table-hover" >
 			  <table class="table">
 				  <thread>
@@ -69,13 +91,11 @@
 				</table>
 			</div>
 		</div>
-	   <nav aria-label="Page Navigation Example" ng-init="page(1)">
+	   <nav aria-label="Page Navigation Example">
 	   	<ul class="pagination justify-context-center" >
-	   		<li class="page-item disabled"> <a class="page-link" tabindex="-1">Previous</a></li>
-			   <li class="page-item"> <a id="page" class="page-link"  ng-click="page(pageArr[0])">{{pageArr[0]}}</a></li>
-			   <li class="page-item"> <a id="page" class="page-link"  ng-click="page(pageArr[1])">{{pageArr[1]}}</a></li>
-			   <li class="page-item"> <a id="page" class="page-link"  ng-click="page(pageArr[2])">{{pageArr[2]}}</a></li>
-	   		<li class="page-item"> <a class="page-link" href="#">Next</a></li>
+	   		<li class="page-item {{preUndo}}"> <a class="page-link" ng-click="page(start-3)">Previous</a></li>
+			   <li class="page-item" ng-repeat="pageItem in range(start, last)"> <a class="page-link" id="page" ng-click="page(pageItem)">{{pageItem}}</a></li>
+	   		<li class="page-item {{lasUndo}}"> <a class="page-link" ng-click="page(last+3)">Next</a></li>
 	   	</ul>
 	   </nav>
 	  </div>
