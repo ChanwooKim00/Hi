@@ -9,13 +9,22 @@ public class FileOut extends FileData implements OutInterface{
 	//File
 	public void out(int in) {
 		String filePath=getFilePathOut().concat(getFileNameOut());
+		FileWriter fileWriter = null;
 		try {
 			File file=new File(filePath);
-			FileWriter fileWriter=new FileWriter(file, true);
+			fileWriter=new FileWriter(file, true);
 			fileWriter.write("\r\n//단어수:"+String.valueOf(in));
-			fileWriter.close();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally {
+			if(fileWriter!=null) {
+				try {
+					fileWriter.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		System.out.println(filePath+" 에 저장 완료.");
 	}
