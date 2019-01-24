@@ -17,16 +17,18 @@
 				$scope.last=7;
 				$scope.preUndo="";
 				$scope.lasUndo="";
+				
+
 				var url1='http://10.1.5.200:3000/biz/getBizList?page_size=10&'
-				var url2='page_number='+num+'&API_KEY=META_TEST';
+				var url2='page_number='+(num-1)+'&API_KEY=META_TEST';
 				
 				$http.get(url1+url2).then(function(response){
 					$scope.projectList=response.data.data.dataList;
 					$scope.totalSize=response.data.data.totalSize;
-					$scope.totalPage=parseInt($scope.totalSize/10);
+					$scope.totalPage=parseInt($scope.totalSize/10)+1;
 				}).catch(function(response){
 					console.log("Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", response.status, response.data);
-				}); // END HTTP
+				});
 				
 				if (num<4){
 					$scope.start = 1;
@@ -71,12 +73,12 @@
 	  <div class="col-12">
 		  <div ng-init="page(1)">
 		  <h5 class="m-t-20"> 현재 등록된 프로젝트 수 {{totalSize}} </h5>
-		  
+		  num= {{numTest}}
 		  <div class="table-responsive-sm table-hover" >
 			  <table class="table">
 				  <thread>
 					  <tr>
-						  <th scope="col">프로젝트명상</th>
+						  <th scope="col">프로젝트명</th>
 						  <th scope="col">사이트명</th>
 						  <th scope="col">프로젝트상세</th>
 						</tr>
