@@ -30,12 +30,12 @@ import org.xml.sax.SAXException;
 public class Parse {
 	XPathFactory xPathFactory = XPathFactory.newInstance();
 	XPath xpath = xPathFactory.newXPath();
-	
+
 	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder builder = null;
-	
+
 	/**
-	 * file 을 Document 에 담아서 리턴하는 메소드
+	 * file 을 Document 에 담아서 리턴하는 메소드 /매개변수가 없을 시 새로 Document 를 생성 한다.
 	 * 
 	 * @param filePath
 	 * @param fileName
@@ -44,7 +44,7 @@ public class Parse {
 	public Document makeDoc(String filePath, String fileName) {
 		Document doc = null;
 		File file = new File(filePath + fileName);
-		
+
 		try {
 			builder = factory.newDocumentBuilder();
 			doc = builder.parse(file);
@@ -54,9 +54,9 @@ public class Parse {
 		}
 		return doc;
 	}
-	
+
 	/**
-	 * file 을 Document 에 담아서 리턴하는 메소드
+	 * file 을 Document 에 담아서 리턴하는 메소드 /매개변수가 없을 시 새로 Document 를 생성 한다.
 	 * 
 	 * @param filePath
 	 * @param fileName
@@ -67,12 +67,13 @@ public class Parse {
 			builder = factory.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
+			System.out.println("document 를 만드는데에 실패했습니다.");
 		}
 		Document doc = builder.newDocument();
-		
+
 		return doc;
 	}
-	
+
 	/**
 	 * Document 를 xpath 를 통해 nodeList 파싱
 	 * 
@@ -86,13 +87,11 @@ public class Parse {
 			list = (NodeList) xpath.evaluate(xPath, doc, XPathConstants.NODESET);
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();
-		}
-		if (list == null) {
-			System.out.println("xPath 가 잘못 되었거나 doc 에 해당 node가 없습니다.");
+			System.out.println("nodeList 를 만드는데에 실패 했습니다.");
 		}
 		return list;
 	}
-	
+
 	/**
 	 * Document 를 xpath를 통해 node 파싱
 	 * 
@@ -106,13 +105,18 @@ public class Parse {
 			node = (Node) xpath.evaluate(xPath, doc, XPathConstants.NODE);
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();
-		}
-		if (node == null) {
-			System.out.println("xPath 가 잘못 되었거나 doc 에 해당 node가 없습니다.");
+			System.out.println("node 를 만드는데에 실패 했습니다.");
 		}
 		return node;
 	}
-	
+
+	/**
+	 * nodeList 에서 매개변수 name 과 같은 nodeName 을 갖고 있는 node 를 반환 하는 메소드.
+	 * 
+	 * @param nodeList
+	 * @param name
+	 * @return Node
+	 */
 	public Node getNode(NodeList nodeList, String name) {
 		Node node = null;
 		for (int i = 0; i < nodeList.getLength(); i++) {
@@ -123,7 +127,7 @@ public class Parse {
 		}
 		return node;
 	}
-	
+
 	/**
 	 * nodeList 를 ArrayList 에 담아주는 메소드
 	 * 
@@ -138,9 +142,9 @@ public class Parse {
 		}
 		return arr;
 	}
-	
+
 	/**
-	 * 노드 리스트 콘솔 출력 테스트용
+	 * 노드 리스트 모든 textContent 콘솔 출력
 	 * 
 	 * @param nodeList
 	 */
@@ -149,7 +153,7 @@ public class Parse {
 			System.out.println(nodeList.item(i).getTextContent());
 		}
 	}
-	
+
 	/**
 	 * xml 파일 만드는 메소드 doc= domsource에 들어가는 document // path= 만들어지는 path + id
 	 * 
@@ -162,7 +166,7 @@ public class Parse {
 			Transformer trans = transFactory.newTransformer();
 			trans.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 			trans.setOutputProperty(OutputKeys.INDENT, "yes");
-			
+
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new FileOutputStream(new File(path)));
 			trans.transform(source, result);

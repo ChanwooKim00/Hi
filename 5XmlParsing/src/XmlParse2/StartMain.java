@@ -46,7 +46,6 @@ public class StartMain {
 					}
 				}
 				parse.makeXmL(fDoc, "C:/Users/meta/Desktop/fileA/RESULT/T_"+tFileIdNodeList.item(i).getNodeValue()+"_TB.xml");
-				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
