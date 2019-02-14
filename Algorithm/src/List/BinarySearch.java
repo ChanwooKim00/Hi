@@ -19,7 +19,6 @@ public class BinarySearch {
 			}
 		}
 		return 0;
-
 	}
 	public static void main(String[] args) {
 		BubbleSort sort=new BubbleSort();
