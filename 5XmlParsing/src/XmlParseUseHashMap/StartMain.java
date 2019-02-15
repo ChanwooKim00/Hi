@@ -1,56 +1,59 @@
-package XmlParse2;
+package XmlParseUseHashMap;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class StartMain {
-	public static void main(String[] args){
+	public static void main(String[] args) throws FileNotFoundException, DOMException, TransformerException {
 		long start = System.currentTimeMillis();
 		Parse parse = new Parse();
 		String xmlPath = "C:/Users/meta/Desktop/fileA/";
-		
+		Map<String, String> fNode =new HashMap<String, String>();
+
 		Document tDoc = parse.makeDoc(xmlPath, "T_BASEFILE_TB.xml");
 		NodeList tFileIdNodeList = parse.nodeListParsing(tDoc, "//TABLE/ROWS/ROW/FILE_ID/text()");
 		try {
 			for (int i = 0; i < tFileIdNodeList.getLength(); i++) {
 				Document fDoc = parse.makeDoc(xmlPath, "F_" + tFileIdNodeList.item(i).getNodeValue() + "_TB.xml");
 				Document pDoc = parse.makeDoc(xmlPath, "P_" + tFileIdNodeList.item(i).getNodeValue() + "_TB.xml");
-
+				fDoc.normalize();
+				pDoc.normalize();
 				NodeList fPidNodeList = parse.nodeListParsing(fDoc, "//TABLE/ROWS/ROW[SIMILAR_RATE div 100>15]/P_ID");
-				for (int j = 0; j < fPidNodeList.getLength(); j++) {
-					Node fPidNode = fPidNodeList.item(j);
-					if(fPidNode.getTextContent()==null || fPidNode.getTextContent()=="" || fPidNode.getTextContent()==" ") {
+				NodeList pRowNodeList = parse.nodeListParsing(pDoc, "//TABLE/ROWS/ROW");
+
+				for(int j=0;j<pRowNodeList.getLength();j++) {
+					Element childPRowList=(Element)pRowNodeList.item(j).getChildNodes();
+					String pId=childPRowList.getElementsByTagName("P_ID").item(0).getTextContent();
+					String licenseId=childPRowList.getElementsByTagName("LICENSE_ID").item(0).getTextContent();
+					if(pId==null || licenseId==null) {
 						continue;
 					}else {
-						Node pLicenseNode = parse.nodeParsing(pDoc, "//TABLE/ROWS/ROW[P_ID=" + fPidNode.getTextContent() + "]/LICENSE_ID");
-						
-						NodeList fRowNodeList=fPidNode.getParentNode().getChildNodes();
-						Node fComNode=parse.getNode(fRowNodeList, "COMMENT");
-						
-						fComNode.setTextContent(pLicenseNode.getTextContent());
+						fNode.put(pId, licenseId);
 					}
+				}
+				
+				for(int j=0;j<fPidNodeList.getLength();j++) {
+					NodeList fRowNodeList=fPidNodeList.item(j).getParentNode().getChildNodes();
+					Node fComNode=parse.getNode(fRowNodeList, "COMMENT");
+					String licenseId=fNode.get(fPidNodeList.item(j));
+					fComNode.setTextContent(licenseId);
 				}
 				parse.makeXmL(fDoc, "C:/Users/meta/Desktop/fileA/RESULT/T_"+tFileIdNodeList.item(i).getNodeValue()+"_TB.xml");
 			}
-		} catch (DOMException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("시간 : " + (end - start)/1000.0 + "초");
+		
 	}
 }
