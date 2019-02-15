@@ -114,6 +114,13 @@ public class Parse {
 		return node;
 	}
 
+	/**
+	 * NodeList 에서 name 에 맞는 Node 를 반환
+	 * 
+	 * @param nodeList
+	 * @param name
+	 * @return Node
+	 */
 	public Node getNode(NodeList nodeList, String name) {
 		Node node = null;
 		for (int i = 0; i < nodeList.getLength(); i++) {
@@ -167,7 +174,7 @@ public class Parse {
 		try {
 			TransformerFactory transFactory = TransformerFactory.newInstance();
 			Transformer trans = transFactory.newTransformer();
-	
+
 			trans.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 			trans.setOutputProperty(OutputKeys.INDENT, "yes");
 
