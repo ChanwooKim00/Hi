@@ -21,6 +21,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -144,12 +145,12 @@ public class Parse {
 	 * 
 	 * @param nodeList
 	 */
-	public void nodeListConsole(NodeList nodeList, String getTextContentORnodeName) {
-		if (getTextContentORnodeName.equals("getTextContent")) {
+	public void nodeListConsole(NodeList nodeList, String getTextContentORgetNodeName) {
+		if (getTextContentORgetNodeName.equals("getTextContent")) {
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				System.out.println(nodeList.item(i).getTextContent());
 			}
-		} else if (getTextContentORnodeName.equals("nodeName")) {
+		} else if (getTextContentORgetNodeName.equals("getNodeName")) {
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				System.out.println(nodeList.item(i).getNodeName());
 			}
@@ -166,13 +167,14 @@ public class Parse {
 		try {
 			TransformerFactory transFactory = TransformerFactory.newInstance();
 			Transformer trans = transFactory.newTransformer();
+	
 			trans.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 			trans.setOutputProperty(OutputKeys.INDENT, "yes");
 
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new FileOutputStream(new File(path)));
 			trans.transform(source, result);
-		} catch (FileNotFoundException | TransformerException e) {
+		} catch (FileNotFoundException | TransformerException | DOMException e) {
 			e.printStackTrace();
 		}
 	}
@@ -182,7 +184,7 @@ public class Parse {
 	 * 
 	 * @param element
 	 * @param tag
-	 * @return
+	 * @return String
 	 */
 	public String getValueByTagNameFromElement(Element element, String tag) {
 		String result = element.getElementsByTagName("LICENSE_ID").item(0).getTextContent();
