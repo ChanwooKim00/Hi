@@ -80,7 +80,7 @@ public class Parse {
 	 * @param doc(Document)
 	 * @return NodeList
 	 */
-	public NodeList nodeListParsing(Document doc, String xPath) {
+	public NodeList nodeListParsing(Object doc, String xPath) {
 		NodeList list = null;
 		try {
 			list = (NodeList) xpath.evaluate(xPath, doc, XPathConstants.NODESET);
@@ -145,11 +145,11 @@ public class Parse {
 	 * @param nodeList
 	 */
 	public void nodeListConsole(NodeList nodeList, String getTextContentORnodeName) {
-		if(getTextContentORnodeName.equals("getTextContent")) {
+		if (getTextContentORnodeName.equals("getTextContent")) {
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				System.out.println(nodeList.item(i).getTextContent());
 			}
-		}else if(getTextContentORnodeName.equals("nodeName")) {
+		} else if (getTextContentORnodeName.equals("nodeName")) {
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				System.out.println(nodeList.item(i).getNodeName());
 			}
@@ -175,5 +175,17 @@ public class Parse {
 		} catch (FileNotFoundException | TransformerException e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * element 에 해당 tag 의 value 를 String 으로 리턴 해주는 메소드
+	 * 
+	 * @param element
+	 * @param tag
+	 * @return
+	 */
+	public String getValueByTagNameFromElement(Element element, String tag) {
+		String result = element.getElementsByTagName("LICENSE_ID").item(0).getTextContent();
+		return result;
 	}
 }

@@ -1,10 +1,8 @@
 package XmlParseUseHashMap;
 
-import java.io.FileNotFoundException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.xml.transform.TransformerException;
 
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
@@ -13,7 +11,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class StartMain {
-	public static void main(String[] args) throws FileNotFoundException, DOMException, TransformerException {
+	static long startTime;
+	static long preUseMemory;
+	
+	public static void main(String[] args){
+		start();
 		long start = System.currentTimeMillis();
 		Parse parse = new Parse();
 		String xmlPath = "C:/Users/meta/Desktop/fileA/";
@@ -31,9 +33,9 @@ public class StartMain {
 				NodeList pRowNodeList = parse.nodeListParsing(pDoc, "//TABLE/ROWS/ROW");
 
 				for(int j=0;j<pRowNodeList.getLength();j++) {
-					Element childPRowList=(Element)pRowNodeList.item(j).getChildNodes();
-					String pId=childPRowList.getElementsByTagName("P_ID").item(0).getTextContent();
-					String licenseId=childPRowList.getElementsByTagName("LICENSE_ID").item(0).getTextContent();
+					Element childPRowElement=(Element)pRowNodeList.item(j).getChildNodes();
+					String pId=parse.getValueByTagNameFromElement(childPRowElement, "P_ID");
+					String licenseId=parse.getValueByTagNameFromElement(childPRowElement, "LICENSE_ID");
 					if(pId==null || licenseId==null) {
 						continue;
 					}else {
@@ -49,11 +51,25 @@ public class StartMain {
 				}
 				parse.makeXmL(fDoc, "C:/Users/meta/Desktop/fileA/RESULT/T_"+tFileIdNodeList.item(i).getNodeValue()+"_TB.xml");
 			}
-		} catch (Exception e) {
+		} catch ( DOMException  e) {
 			e.printStackTrace();
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("시간 : " + (end - start)/1000.0 + "초");
-		
+		end();
+	}
+	public static void start() {
+		Runtime.getRuntime().gc();
+		startTime = System.nanoTime();
+		preUseMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+	}
+	
+	public static void end() {
+		long afterUseMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+		long useMemory = (afterUseMemory - preUseMemory)/1000;
+		long endTime = System.nanoTime();
+		long elapsedTime = endTime - startTime;
+		System.out.println(new Date()+" | Elapsed Time : "+elapsedTime+" | Use Memory : "+useMemory);
 	}
 }
+
