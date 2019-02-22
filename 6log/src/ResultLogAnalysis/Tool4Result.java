@@ -1,4 +1,4 @@
-package resultLogAnalysis;
+package ResultLogAnalysis;
 
 import java.io.BufferedReader;
 import java.io.IOException;

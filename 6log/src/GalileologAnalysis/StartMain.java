@@ -1,23 +1,21 @@
-package logAnalysis;
+package GalileologAnalysis;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 
-import resultLogAnalysis.ResultLogDto;
-import resultLogAnalysis.Tool4Result;
-import resultLogAnalysis.Util4Result;
+import ResultLogAnalysis.ResultLogDto;
+import ResultLogAnalysis.Tool4Result;
+
 
 public class StartMain {
 	static long startTime;
 	static long preUseMemory;
 
 	public static void main(String[] args) {
-		start();
 		Util util = new Util();
+		startTime=util.startTime();
+		preUseMemory=util.startUseMemory();
 		Tool4Galileo toolG = new Tool4Galileo();
 		Tool4Result toolR = new Tool4Result();
 		ArrayList<String> logListG = new ArrayList<>();
@@ -33,20 +31,8 @@ public class StartMain {
 		logListR=toolR.makeLogList(keyListR, mapR);
 		util.makeLogFast("C:/Users/meta/Desktop/교육/6주차/result/result2.log", logListR, false);
 		//result 로그 분석 완료
-		end();
+		util.end(startTime,preUseMemory);
 	}
 
-	public static void start() {
-		Runtime.getRuntime().gc();
-		startTime = System.currentTimeMillis();
-		preUseMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-	}
-
-	public static void end() {
-		long afterUseMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-		long useMemory = (afterUseMemory - preUseMemory) / 1000;
-		long endTime = System.currentTimeMillis();
-		long elapsedTime = endTime - startTime;
-		System.out.println(new Date() + " | Elapsed Time : " + elapsedTime + " | Use Memory : " + useMemory);
-	}
+	
 }

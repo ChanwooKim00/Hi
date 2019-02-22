@@ -1,4 +1,4 @@
-package logAnalysis;
+package GalileologAnalysis;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -129,7 +130,6 @@ public class Util {
 		}
 	}
 
-
 	/**
 	 * 조건(Pattern) 이 들어 있는지 확인 들어있다면 string 반환 / 없으면 "" 반환
 	 * 
@@ -160,5 +160,37 @@ public class Util {
 		return result;
 	}
 
+	/**
+	 * 시작 시간 구해서 반환
+	 * 
+	 * @return
+	 */
+	public long startTime() {
+		Runtime.getRuntime().gc();
+		return System.currentTimeMillis();
+	}
+
+	/**
+	 * 시작 메모리 사용량 구해서 반환
+	 * 
+	 * @return
+	 */
+	public long startUseMemory() {
+		return Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+	}
+
+	/**
+	 * 시작에서 끝날때 시간과 메모리 사용량 구해서 사용량 구해 systemout 으로 출력
+	 * 
+	 * @param startTime
+	 * @param preUseMemory
+	 */
+	public void end(long startTime, long preUseMemory) {
+		long afterUseMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+		long useMemory = (afterUseMemory - preUseMemory) / 1000;
+		long endTime = System.currentTimeMillis();
+		long elapsedTime = endTime - startTime;
+		System.out.println(new Date() + " | Elapsed Time : " + elapsedTime + " | Use Memory : " + useMemory);
+	}
 
 }

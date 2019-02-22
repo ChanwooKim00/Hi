@@ -1,4 +1,4 @@
-package logAnalysis;
+package GalileologAnalysis;
 
 public class GaLileoLogDto {
 	String start;

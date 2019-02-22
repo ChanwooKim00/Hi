@@ -1,4 +1,4 @@
-package resultLogAnalysis;
+package ResultLogAnalysis;
 
 public class ResultLogDto {
 	private int count=0;
