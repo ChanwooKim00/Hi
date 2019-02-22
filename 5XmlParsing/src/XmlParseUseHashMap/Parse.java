@@ -11,7 +11,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -171,18 +170,28 @@ public class Parse {
 	 * @param path
 	 */
 	public void makeXmL(Document doc, String path) {
+		FileOutputStream fileOutput=null;
 		try {
 			TransformerFactory transFactory = TransformerFactory.newInstance();
 			Transformer trans = transFactory.newTransformer();
 
 			trans.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 			trans.setOutputProperty(OutputKeys.INDENT, "yes");
-
+			fileOutput=new FileOutputStream(new File(path));
+			
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new FileOutputStream(new File(path)));
+			StreamResult result = new StreamResult(fileOutput);
 			trans.transform(source, result);
 		} catch (FileNotFoundException | TransformerException | DOMException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				if(fileOutput!=null) {
+					fileOutput.close();
+				}
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

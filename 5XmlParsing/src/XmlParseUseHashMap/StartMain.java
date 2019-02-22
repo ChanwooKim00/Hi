@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -18,9 +17,8 @@ public class StartMain {
 
 	public static void main(String[] args) {
 		start();
-		long start = System.currentTimeMillis();
 		Parse parse = new Parse();
-		String xmlPath = "C:/Users/meta/Desktop/fileA/";
+		String xmlPath = "C:\\Users\\meta\\Desktop\\교육\\5주차\\fileA/";
 		Map<String, String> fNode = new HashMap<String, String>();
 
 		Document tDoc = parse.makeDoc(xmlPath, "T_BASEFILE_TB.xml");
@@ -51,23 +49,21 @@ public class StartMain {
 				fComNode.setTextContent(licenseId);
 			}
 			parse.makeXmL(fDoc,
-					"C:/Users/meta/Desktop/fileA/RESULT/T_" + tFileIdNodeList.item(i).getNodeValue() + "_TB.xml");
+					"C:\\Users\\meta\\Desktop\\교육\\5주차\\fileA\\RESULT/T_" + tFileIdNodeList.item(i).getNodeValue() + "_TB.xml");
 		}
-		long end = System.currentTimeMillis();
-		System.out.println("시간 : " + (end - start) / 1000.0 + "초");
 		end();
 	}
 
 	public static void start() {
 		Runtime.getRuntime().gc();
-		startTime = System.nanoTime();
+		startTime = System.currentTimeMillis();
 		preUseMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 	}
 
 	public static void end() {
 		long afterUseMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 		long useMemory = (afterUseMemory - preUseMemory) / 1000;
-		long endTime = System.nanoTime();
+		long endTime = System.currentTimeMillis();
 		long elapsedTime = endTime - startTime;
 		System.out.println(new Date() + " | Elapsed Time : " + elapsedTime + " | Use Memory : " + useMemory);
 	}
