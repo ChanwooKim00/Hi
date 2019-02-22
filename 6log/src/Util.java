@@ -194,7 +194,7 @@ public class Util {
 	}
 	public void closeBuf(BufferedReader bufReader) {
 		try {
-			bufReader.close();
+			if(bufReader!=null)bufReader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
