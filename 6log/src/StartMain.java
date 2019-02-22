@@ -16,8 +16,10 @@ public class StartMain extends FileData {
 		Util util = new Util();
 		startTime = util.startTime();
 		preUseMemory = util.startUseMemory();
+		
 		Tool4Galileo toolG = new Tool4Galileo();
 		Tool4Result toolR = new Tool4Result();
+		
 		ArrayList<String> logListG = new ArrayList<>();
 		HashMap<String, GaLileoLogDto> mapG = new HashMap<String, GaLileoLogDto>();
 		BufferedReader bufReader=null;
@@ -31,6 +33,7 @@ public class StartMain extends FileData {
 		}
 		util.makeLogFast(getGalileoLogOut(), logListG, false);
 		// 갈릴래오 로그 분석 완료
+		
 		HashMap<String, ResultLogDto> mapR = new HashMap<String, ResultLogDto>();
 		ArrayList<String> keyListR = new ArrayList<String>();
 		ArrayList<String> logListR = new ArrayList<String>();
