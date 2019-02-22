@@ -192,5 +192,11 @@ public class Util {
 		long elapsedTime = endTime - startTime;
 		System.out.println(new Date() + " | Elapsed Time : " + elapsedTime + " | Use Memory : " + useMemory);
 	}
-
+	public void closeBuf(BufferedReader bufReader) {
+		try {
+			bufReader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
