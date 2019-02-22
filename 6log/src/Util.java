@@ -1,4 +1,4 @@
-package GalileologAnalysis;
+
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -79,7 +79,7 @@ public class Util {
 		try {
 			fileWriter = new FileWriter(file, true);
 			bufferedWriter = new BufferedWriter(fileWriter);
-			bufferedWriter.write("\r\n" + line);
+			bufferedWriter.write(line + "\r\n");
 			bufferedWriter.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
