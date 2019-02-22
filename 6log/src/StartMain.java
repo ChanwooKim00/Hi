@@ -14,7 +14,7 @@ public class StartMain extends FileData{
 	static long preUseMemory;
 
 	public static void main(String[] args) {
-//		FileData fileData = new FileData();
+
 		Util util = new Util();
 		startTime=util.startTime();
 		preUseMemory=util.startUseMemory();
