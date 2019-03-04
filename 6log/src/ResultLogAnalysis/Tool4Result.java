@@ -138,7 +138,7 @@ public class Tool4Result {
 	}
 
 	/**
-	 * size 와 time 을 받아서 max / min / total 에 넣어 주는 메소드
+	 * size 와 time 을 받아서 max / firstMin / total 에 넣어 주는 메소드
 	 * 
 	 * @param size
 	 * @param time
