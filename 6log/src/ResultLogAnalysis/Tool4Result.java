@@ -74,7 +74,8 @@ public class Tool4Result {
 
 	/**
 	 * 시간을 검색해서 시간 차이를 int 로 반환
-	 * 
+	 * 0->전체  1->시작 날짜 2->시작 시간 3->시작 분 4->시작 초 5->끝 날짜 
+	 *    6->끝 시간 7-> 끝 분 8-> 끝 초 9->contentLength
 	 * @param line (검색 String)
 	 * @return int (걸린 시간)
 	 */
