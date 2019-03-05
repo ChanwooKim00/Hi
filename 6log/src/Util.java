@@ -72,12 +72,12 @@ public class Util {
 	 * @param path
 	 * @param line
 	 */
-	public void makeLogSlow(String path, String line) {
+	public void makeLogSlow(String path, String line, boolean dup) {
 		FileWriter fileWriter = null;
 		BufferedWriter bufferedWriter = null;
 		File file = new File(path);
 		try {
-			fileWriter = new FileWriter(file, true);
+			fileWriter = new FileWriter(file, dup);
 			bufferedWriter = new BufferedWriter(fileWriter);
 			bufferedWriter.write(line + "\r\n");
 			bufferedWriter.flush();
@@ -123,7 +123,6 @@ public class Util {
 		}
 		consoleCheck(threadArr);
 	}
-
 	public void consoleCheck(ArrayList<String> threadArr) {
 		for (int a = 0; a < threadArr.size(); a++) {
 			System.out.println(a + "번 쨰        " + threadArr.get(a));

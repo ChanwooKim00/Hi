@@ -24,8 +24,8 @@ public class StartMain extends FileData {
 		HashMap<String, GaLileoLogDto> mapG = new HashMap<String, GaLileoLogDto>();
 		BufferedReader bufReader=null;
 		try {
-		bufReader=util.makeBufReader(getGalileoLogInPath(), getGalileoLogInName());
-		logListG = toolG.startAnalysisLine(mapG, bufReader);
+			bufReader=util.makeBufReader(getGalileoLogInPath(), getGalileoLogInName());
+			logListG = toolG.startAnalysisLine(mapG, bufReader);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -38,8 +38,8 @@ public class StartMain extends FileData {
 		ArrayList<String> keyListR = new ArrayList<String>();
 		ArrayList<String> logListR = new ArrayList<String>();
 		try {
-		bufReader=util.makeBufReader(getResultLogInPath(), getResultLogInName());
-		toolR.startAnalisysLog(bufReader, keyListR, logListR, mapR);
+			bufReader=util.makeBufReader(getResultLogInPath(), getResultLogInName());
+			toolR.startAnalisysLog(bufReader, keyListR, logListR, mapR);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -49,6 +49,7 @@ public class StartMain extends FileData {
 		logListR = toolR.makeLogList(keyListR, mapR);
 		util.makeLogFast(getResultLogOut(), logListR, false);
 		// result 로그 분석 완료
+		
 		util.end(startTime, preUseMemory);
 	}
 

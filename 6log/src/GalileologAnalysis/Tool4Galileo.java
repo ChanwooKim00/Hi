@@ -10,8 +10,10 @@ import java.util.regex.Pattern;
 public class Tool4Galileo {
 	Matcher matcher;
 	String threadId = null;
+
 	/**
 	 * 분석 시작 메소드
+	 * 
 	 * @param outMap
 	 * @param bufReader
 	 * @return ArrayList<String>
@@ -22,7 +24,7 @@ public class Tool4Galileo {
 		try {
 			while ((line = bufReader.readLine()) != null) {
 				boolean flag = analysisLine(line, outMap, logList);
-				if (flag == false) {
+				if (!flag) {
 					flag = analysisStopWatchLine(outMap.get(threadId), bufReader);
 				}
 			}
@@ -31,8 +33,10 @@ public class Tool4Galileo {
 		}
 		return logList;
 	}
+
 	/**
-	 * line을 분석하여 dto 에  저장
+	 * line을 분석하여 dto 에 저장
+	 * 
 	 * @param line
 	 * @param outMap
 	 * @param logList
@@ -70,8 +74,10 @@ public class Tool4Galileo {
 		}
 		return flag;
 	}
+
 	/**
 	 * stopWatch 밑 부분 분석 / dto 에 저장
+	 * 
 	 * @param dto
 	 * @param bufReader
 	 * @return boolean flag 값 true 로 변경을 위해
@@ -79,22 +85,38 @@ public class Tool4Galileo {
 	private boolean analysisStopWatchLine(GaLileoLogDto dto, BufferedReader bufReader) {
 		String line = "";
 		boolean flag = false;
+//		ArrayList<String> checkNull = new ArrayList<String>();
+
+		//여기서 while 문으로 검색 하지 말고 한줄 한줄 하고 만약에 하나라도 없으면, 모두 null 로 넣고 마무리!
 		try {
-			while (!line.contains("4. Unmarshalling and Send to CmmMod Server")) {
+			while (line.contains(" 4. Unmarshalling and Send to CmmMod Server")) {
 				line = bufReader.readLine();
+				String result = null;
+
 				if (line.contains("1. Before Marshalling")) {
-					dto.setBeforeMarshalling(patternSearch("([0-9]{5})", line, 0));
+					result = patternSearch("([0-9]{5})", line, 0);
+					dto.setBeforeMarshalling(result);
+//					checkNull.add(result);
 				} else if (line.contains("2. Marshalling")) {
-					dto.setMarshalling(patternSearch("([0-9]{5})", line, 0));
+					result = patternSearch("([0-9]{5})", line, 0);
+					dto.setMarshalling(result);
+//					checkNull.add(result);
 				} else if (line.contains("3. Invoking galileo")) {
-					dto.setInvokingGalileo(patternSearch("([0-9]{5})", line, 0));
+					result = patternSearch("([0-9]{5})", line, 0);
+					dto.setInvokingGalileo(result);
+//					checkNull.add(result);
 				} else if (line.contains("4. Unmarshalling and Send to CmmMod Server")) {
-					dto.setUnmarshalling(patternSearch("([0-9]{5})", line, 0));
+					result = patternSearch("([0-9]{5})", line, 0);
+					dto.setUnmarshalling(result);
+//					checkNull.add(result);
 				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+//		if (checkNull.size() > 3) {
+//			setNull(dto);
+//		}
 		flag = true;
 		return flag;
 	}
@@ -110,4 +132,15 @@ public class Tool4Galileo {
 		return result;
 	}
 
+	/**
+	 * dto 값 4가지 를 모두 null 로 바꿔 주는것
+	 * 
+	 * @param dto
+	 */
+	private void setNull(GaLileoLogDto dto) {
+		dto.setBeforeMarshalling(null);
+		dto.setMarshalling(null);
+		dto.setInvokingGalileo(null);
+		dto.setUnmarshalling(null);
+	}
 }

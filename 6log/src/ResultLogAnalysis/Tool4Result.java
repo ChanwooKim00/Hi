@@ -58,8 +58,7 @@ public class Tool4Result {
 	 * 
 	 * @param patternIn
 	 * @param line
-	 * @return matcher 0-> 전체 1-> 시작 날짜 2-> 시작 시간 3-> 시작 분 4-> 시작 초 5-> 끝 날짜 6-> 끝
-	 *         시간 7-> 끝 분 8-> 끝 초9->contentLength
+	 * @return matcher
 	 */
 	private boolean searchMatcher(String patternIn, String line) {
 		boolean flag = true;
@@ -91,6 +90,11 @@ public class Tool4Result {
 			int resultMin = (endMin - startMin) * 60;
 			int resultSec = (endSec - startSec);
 			res = resultMin + resultSec;
+		}else if(startHour != endHour) {
+			int resultHour = (endHour - startHour) * 360;
+			int resultMin = (endMin - startMin) * 60;
+			int resultSec = (endSec - startSec);
+			res = resultHour + resultMin + resultSec;
 		}
 		return res * 1000;
 	}
